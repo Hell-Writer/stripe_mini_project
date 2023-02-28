@@ -1,4 +1,3 @@
-import json
 import stripe
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
@@ -16,7 +15,7 @@ User = get_user_model()
 @api_view(http_method_names=['GET'])
 def buy_view(request, item_id):
     session_id = get_session_id(item_id)
-    return Response(json.dumps([{'session_id': session_id}]))
+    return Response([{"session_id": session_id}])
 
 
 @api_view(http_method_names=['GET'])
