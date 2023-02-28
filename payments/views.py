@@ -20,6 +20,8 @@ def buy_view(request, item_id):
 
 @api_view(http_method_names=['GET'])
 def order_view(request):
+    '''Список ID предметов нужно передать в аргументах
+    Пример: http://site/order/?ids=1,2,3'''
     ids = request.GET.get('ids', 'None')
     if ids == 'None':
         return Response('Неверное значение ключа ids',
